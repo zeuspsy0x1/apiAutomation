@@ -15,6 +15,6 @@ In this repository you will find automated steps to test a mock api.
 - Open the project, run the test from the Suite.xml file. This will run all the 4 tests starting with: 
 
 1. @Test1 checks that the endpoint is empty, if not, it deletes everything from it.
-2. @Test2 posts creates 11 fake bank transactions and posts 10 of those (the non duplicated) to the api.
+2. @Test2 creates 11 fake bank transactions and posts 10 of those (the non duplicated, the one left has a duplicated email) to the api.
 3. @Test3 makes a get request to the api and checks that there are not duplicated emails in the bank transactions.
 4. @Test4 creates a new fake account number and updates the first available bank transaction with it.
