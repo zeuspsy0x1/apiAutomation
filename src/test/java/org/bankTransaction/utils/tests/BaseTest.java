@@ -116,8 +116,8 @@ public class BaseTest {
     }
 
     /**
-     *
-     * @return
+     * Checks if there are duplicated emails in the transactions from the endpoint.
+     * @return true if there are not duplicated transactions.
      */
     protected boolean checkForDuplicatedEmails() {
         List<String> transactionEmails = new ArrayList<>();
@@ -129,8 +129,10 @@ public class BaseTest {
         return transactionEmails.stream().distinct().count() == availableTransactionsInTheEndpoint.size();
     }
 
-////////////////////////////////////////////////////////////////////////
-
+    /**
+     * Checks if there are duplicated emails in the transactions created.
+     * @return false if there are not duplicated transactions.
+     */
     protected boolean checkForDuplicatedEmails(List<BankTransactionData> listOfTransactions) {
         List<String> transactionEmails = new ArrayList<>();
         listOfTransactions.forEach(transaction -> {
@@ -139,6 +141,11 @@ public class BaseTest {
         return !(transactionEmails.stream().distinct().count() == listOfTransactions.size());
     }
 
+    /**
+     * Receives a
+     * @param bankTransactionData and makes a POST request with it.
+     * @return the status code from the POST request.
+     */
     protected int createATransaction(BankTransactionData bankTransactionData) {
         Response response = given().contentType("application/json").body(bankTransactionData).when().post(this.endpointUrl);
 
@@ -146,7 +153,11 @@ public class BaseTest {
     }
 
 
-
+    /**
+     * Creates fake transactions, concatenates them to
+     * @return a <BankTransactionData> list of 10 fake transactions and 1 transaction
+     * with a duplicated email that should not be posted to the api.
+     */
     protected List<BankTransactionData> createTenFakeTransactionsAndOneWithDuplicatedEmail() {
         List<BankTransactionData> fakeBankTransactions = new ArrayList<>();
         Faker javaFaker = Faker.instance(new Locale("en-US"));
@@ -187,7 +198,11 @@ public class BaseTest {
     }
 
 
-
+    /**
+     * Creates the fake transactions and checks if there are duplicated emails in those transactions.
+     * If that is the case, it posts all non duplicated transactions.
+     * @return the number of successful posts to the mock api.
+     */
     protected long createAndPostFakeTransactions() {
         List<BankTransactionData> transactions = createTenFakeTransactionsAndOneWithDuplicatedEmail();
         List<Integer> listOfCreatedTransactionsStatusCodes = new ArrayList<>();
