@@ -1,0 +1,16 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+<suite name="Test suite API">
+    <listeners>
+        <listener class-name="org.bankTransaction.utils.listener.Listener"/>
+    </listeners>
+
+    <test name="All api endpoint tests" enabled="true">
+        <classes>
+            <class name="org.bankTransaction.tests.PrepareEndpointTest"/>
+            <class name="org.bankTransaction.tests.PopulateEndpointTest"/>
+            <class name="org.bankTransaction.tests.CheckForDuplicatedEmailsTest"/>
+            <class name="org.bankTransaction.tests.UpdateAccountNumberTest"/>
+        </classes>
+    </test>
+</suite>
