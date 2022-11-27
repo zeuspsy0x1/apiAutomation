@@ -7,9 +7,15 @@ import org.bankTransaction.reporting.Reporter;
 import org.bankTransaction.utils.tests.BaseTest;
 
 
-
+/**
+ * @author Zeus Vargas
+ * A class that contains the test method <prepareEndpointTest> and is executed from the Suite.xml file.
+ */
 public class PrepareEndpointTest extends BaseTest {
 
+    /**
+     * Checks if the mock api has any data, and if that is the case, it deletes it.
+     */
     @Test
     public void prepareEndpointTest() {
 
