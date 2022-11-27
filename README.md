@@ -7,7 +7,7 @@ In this repository you will find automated steps to test a mock api.
 
 1. Sometimes the mock api does not allow more than 30 fast requests, so a test could fail in that scenario.
 2. You can replace the link of your own mock api in the class baseTest, it has to have the same format though.
-3. The mock api can only have up to 100 records. 
+3. The mock api in this repo can only have up to 100 records. 
 
 
 # How to run it:
